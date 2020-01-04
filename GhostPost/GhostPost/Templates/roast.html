@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block main %}
+<div>
+    {% for post in posts %}
+    <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h2 class="card-title">{{ post.typeOfPost }}</h2>
+              <p class="card-text">{{ post.body }}</p>
+              <div>Like:{{post.like}}</div>
+              <div>Dislike:{{post.dislike}}</div>
+              <p>{{ post.timestamp}}</p>
+            <div style="display: flex; justify-content: space-between">
+                    <a href="/like/{{post.id}}" class="btn btn-success">Like</a>
+                    <a href="/dislike/{{post.id}}" class="btn btn-danger">Dislike</a>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+</div>
+{% endblock %}

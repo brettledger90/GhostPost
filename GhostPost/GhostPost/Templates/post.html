@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+
+{% block main %}
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <h2>New Post</h2>
+                <form class='form' method='post' action='' style="border: 8px solid powderblue; padding: 100px; border-radius: 15px;">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type='submit' class='btn btn-primary' value='Submit Post'>
+                </form>
+        </div>
+{% endblock %}
